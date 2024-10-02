@@ -1,8 +1,8 @@
 #!/bin/make
 CC = gcc
-CFLAGS = -O2 -Wall
+CFLAGS = -O0 -g -Wall
 CXX = g++
-CXXFLAGS = -O2 -Wall -std=c++14
+CXXFLAGS = -O0 -g -Wall -std=c++14
 LDFLAGS = -lm
 OBJS = main
 
