@@ -17,7 +17,7 @@ using namespace std;
 /*出力
  *
  */
-void merge(vector<uint64_t>& A, uint64_t left, uint64_t mid, uint64_t right) {
+void merge(vector<uint64_t>& A, uint64_t left, uint64_t mid, uint64_t right, int &cnt) {
     uint64_t n1 = mid - left;
     uint64_t n2 = right - mid;
     vector<uint64_t> L(500000);
@@ -29,6 +29,7 @@ void merge(vector<uint64_t>& A, uint64_t left, uint64_t mid, uint64_t right) {
     uint64_t i, j;
     i = j = 0;
     for (uint64_t k = left; k < right; k++) {
+		cnt++;
         if (L[i] <= R[j]) {
             A[k] = L[i];
 			i++;
@@ -40,27 +41,30 @@ void merge(vector<uint64_t>& A, uint64_t left, uint64_t mid, uint64_t right) {
     }
 }
 
-void mergeSort(vector<uint64_t>& A, uint64_t left, uint64_t right) {
+void mergeSort(vector<uint64_t>& A, uint64_t left, uint64_t right, int &cnt) {
     if (left + 1 < right) {
         uint64_t mid = (left + right) / 2;
-        mergeSort(A, left, mid);
-        mergeSort(A, mid, right);
-        merge(A, left, mid, right);
+        mergeSort(A, left, mid, cnt);
+        mergeSort(A, mid, right, cnt);
+        merge(A, left, mid, right, cnt);
     }
     return;
 }
 
-void printResult(vector<uint64_t>& A, uint64_t n) {
+void printResult(vector<uint64_t>& A, uint64_t n, int cnt) {
     for (uint64_t i = 0; i < n - 1; i++) cout << A[i] << " ";
     cout << A[n - 1] << endl;
+	cout << cnt << endl;
 }
 
 int main(void) {
     uint64_t n;
     cin >> n;
+	int cnt = 0;
     vector<uint64_t> A(500001);
     for (uint64_t i = 0; i < n; i++) cin >> A[i];
-    mergeSort(A, 0, n);
-    printResult(A, n);
+    mergeSort(A, 0, n, cnt);
+    printResult(A, n, cnt);
     return 0;
 }
+
