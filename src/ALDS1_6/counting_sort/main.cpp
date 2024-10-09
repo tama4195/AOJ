@@ -24,21 +24,20 @@ uint64_t B[SIZE] = {0};
 uint64_t C[SIZE] = {0};
 
 int main(void) {
-	uint64_t n;
-	cin >> n;
-	for (uint64_t i=0;i<n;i++) cin >> A[i];
-    for (uint64_t i=0;i<n;i++) C[A[i]]++;
+    uint64_t n;
+    cin >> n;
+    for (uint64_t i = 0; i < n; i++) cin >> A[i];
+    for (uint64_t i = 0; i < n; i++) C[A[i]]++;
     uint64_t index = 0;
-    for (uint64_t i=0;i<n;i++) {
-        if(C[i] != 0) {
-            for (uint64_t j=0; j<C[i]; j++) {
+    for (uint64_t i = 0; i < n; i++) {
+        if (C[i] != 0) {
+            for (uint64_t j = 0; j < C[i]; j++) {
                 B[++index] = i;
             }
         }
     }
-    for (uint64_t i=0; i<n-1; i++) cout << B[i] << " ";
-    cout << B[n-1] << endl;
+    for (uint64_t i = 0; i < n - 1; i++) cout << B[i] << " ";
+    cout << B[n - 1] << endl;
 
     return 0;
 }
-
