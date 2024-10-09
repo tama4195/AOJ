@@ -29,10 +29,10 @@ int main(void) {
     for (uint64_t i = 0; i < n; i++) cin >> A[i];
     for (uint64_t i = 0; i < n; i++) C[A[i]]++;
     uint64_t index = 0;
-    for (uint64_t i = 0; i < n; i++) {
+    for (uint64_t i = 0; i < SIZE; i++) {
         if (C[i] != 0) {
             for (uint64_t j = 0; j < C[i]; j++) {
-                B[++index] = i;
+                B[index++] = i;
             }
         }
     }
