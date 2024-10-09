@@ -18,7 +18,7 @@ using namespace std;
  *
  */
 
-#define SIZE (10001)
+#define SIZE (2000001)
 uint64_t A[SIZE] = {0};
 uint64_t B[SIZE] = {0};
 uint64_t C[SIZE] = {0};
