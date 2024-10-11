@@ -20,7 +20,7 @@ using namespace std;
 int partition(std::vector<int> &A, int p, int r) {
     int x = A[r];
     int i = p - 1;
-    for (int j = p; j < r-1; j++) {
+    for (int j = p; j < r - 1; j++) {
         if (A[j] <= x) {
             i++;
             int tmp = A[i];
@@ -28,14 +28,14 @@ int partition(std::vector<int> &A, int p, int r) {
             A[j] = tmp;
         }
     }
-    int tmp = A[i+1];
+    int tmp = A[i + 1];
     A[i + 1] = A[r];
     A[r] = tmp;
     return i + 1;
 }
 
 void printResult(std::vector<int> &A, int n, int q) {
-	int i;
+    int i;
     for (i = 0; i < n - 1; i++) {
         if (i == q)
             cout << "[" << A[i] << "]" << " ";
