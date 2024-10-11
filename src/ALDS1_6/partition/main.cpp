@@ -17,12 +17,10 @@ using namespace std;
  *
  */
 
-const int SIZE = 100001;
-
 int partition(std::vector<int> &A, int p, int r) {
     int x = A[r];
     int i = p - 1;
-    for (int j = p; j < r; r++) {
+    for (int j = p; j < r-1; j++) {
         if (A[j] <= x) {
             i++;
             int tmp = A[i];
@@ -30,7 +28,9 @@ int partition(std::vector<int> &A, int p, int r) {
             A[j] = tmp;
         }
     }
+    int tmp = A[i+1];
     A[i + 1] = A[r];
+    A[r] = tmp;
     return i + 1;
 }
 
@@ -48,7 +48,7 @@ void printResult(std::vector<int> &A, int n, int q) {
 int main(void) {
     int n;
     cin >> n;
-    std::vector<int> A(SIZE);
+    std::vector<int> A(n);
     for (int i = 0; i < n; i++) cin >> A[i];
     int p = 0;
     int r = n - 1;
