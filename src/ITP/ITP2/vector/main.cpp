@@ -10,15 +10,17 @@ enum COMMAND { PUSH, ACCESS, POP };
 int main(void) {
     int q;
     cin >> q;
-    std::vector<int64_t> A(q);
+    std::vector<int64_t> A;
     for (int i = 0; i < q; i++) {
         int command;
         int64_t x;
-        cin >> command >> x;
+        cin >> command;
         if (command == PUSH) {
+			cin >> x;
             A.push_back(x);
         } else if (command == ACCESS) {
-            cout << A.at(x);
+			cin >> x;
+            cout << A.at(x) << endl;
         } else if (command == POP) {
             A.pop_back();
         }
