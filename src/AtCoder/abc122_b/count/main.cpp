@@ -26,7 +26,8 @@ int main(void) {
             }
             if (sum >= (abs(j - i))) {
                 if (max < sum) max = sum;
-            } else break;
+            } else
+                break;
         }
     }
 
