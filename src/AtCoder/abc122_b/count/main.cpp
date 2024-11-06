@@ -13,21 +13,23 @@ int main(void) {
     for (int i = 0; (size_t)i < s.size(); i++) {
         for (int j = i; (size_t)j < s.size(); j++) {
             int sum = 0;
+            int flag = 0;
             if (j == i) {
                 if (s[i] == 'A' or s[i] == 'C' or s[i] == 'G' or s[i] == 'T') {
                     sum = 1;
                 }
             } else {
-                int cnt_a = std::count(s.begin() + i, s.begin() + j, 'A');
-                int cnt_c = std::count(s.begin() + i, s.begin() + j, 'C');
-                int cnt_g = std::count(s.begin() + i, s.begin() + j, 'G');
-                int cnt_t = std::count(s.begin() + i, s.begin() + j, 'T');
-                sum = cnt_a + cnt_c + cnt_g + cnt_t;
+                for (int k = i; k <= j; k++) {
+                    if (s[k] == 'A' or s[k] == 'C' or s[k] == 'G' or s[k] == 'T') {
+                        sum++;
+                    } else {
+                        flag = 1;
+                    }
+                }
             }
-            if (sum >= (abs(j - i))) {
+            if (flag == 0) {
                 if (max < sum) max = sum;
-            } else
-                break;
+            }
         }
     }
 
